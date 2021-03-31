@@ -4,7 +4,10 @@ services:
 
 before_install:
   - docker pull node:8-onbuild
+
+install:
   - docker build -t docker-hello .
 
 script:
   - docker run --rm docker-hello npm run test
+  - docker run --rm docker-hello npm run lint
